@@ -475,6 +475,37 @@
 </article>
 
   
+    <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/post/a-function-named-next_permutation/"></a>
+    </h1>
+    
+    <div class="post-meta">
+      <time datetime="0001-01-01" class="post-time">
+        0001-01-01
+      </time>
+      
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      a function named next_permutation() #include&lt;cstdio&gt; void swap(char items[], int i, int j) { char temp = items[i]; items[i] = items[j]; items[j] = temp; } void reverse(char items[], int l, int r) { while (l &lt; r) swap(items, l++, r--); } bool next_permutation(char items[], int size) { int i = size - 2; while (i &gt;= 0 &amp;&amp; items[i] &gt;= items[i + 1]) i--; if (i == -1) return false; int j = size - 1; while (items[j] &lt;= items[i]) j--; swap(items, i, j); reverse(items, i + 1, size - 1); return true; } int main(int argc, char* argv[]) { char items[] = {&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;}; int size = sizeof(items) / sizeof(char); do { printf(&#34;%c %c %c %c\n&#34;, items[0], items[1], items[2], items[3]); } while (next_permutation(items, size)); return 0; } 
+    </div>
+    <div class="read-more">
+      <a href="/post/a-function-named-next_permutation/" class="read-more-link">Read more</a>
+    </div>
+    
+  </div>
+</article>
+
+  
 </section>
 
 

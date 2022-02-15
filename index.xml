@@ -3231,5 +3231,48 @@ $
       
     </item>
     
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/a-function-named-next_permutation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/a-function-named-next_permutation/</guid>
+      
+        <description>&lt;h2 id=&#34;a-function-named-next_permutation&#34;&gt;a function named next_permutation()&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;swap&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; items[], &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; j) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; temp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; items[i];
+    items[i] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; items[j];
+    items[j] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; temp;
+}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;reverse&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; items[], &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; l, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; r) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (l &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; r) swap(items, l&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;, r&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;);
+}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;next_permutation&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; items[], &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; size) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; size &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; items[i] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; items[i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;]) i&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (i &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; false;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; j &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; size &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (items[j] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; items[i]) j&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;;
+    swap(items, i, j);
+    reverse(items, i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, size &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
+}
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; argv[]) {
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; items[] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;4&amp;#39;&lt;/span&gt;};
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; size &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;sizeof&lt;/span&gt;(items) &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;sizeof&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt;);
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt; {
+        printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;%c %c %c %c&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, items[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;], items[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;], items[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;], items[&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;]);
+    } &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (next_permutation(items, size));
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      
+    </item>
+    
   </channel>
 </rss>
